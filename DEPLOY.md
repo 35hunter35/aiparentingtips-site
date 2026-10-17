@@ -48,7 +48,7 @@ cd /workspace/aiparentingtips-site
 git init -b main
 git add .
 git commit -m "Launch AI Parenting Tips site"
-git remote add origin https://github.com/<OWNER>/aiparentingtips-site.git
+git remote add origin https://github.com/35hunter35/aiparentingtips-site.git
 git push -u origin main
 ```
 (Or on github.com: **Add file > Upload files** and drag in the folder contents. Include the hidden `.nojekyll` and `CNAME` files.)
@@ -107,8 +107,8 @@ Under **Custom records** > **Add record**, one at a time (TTL: leave the default
 | `@` | AAAA | `2606:50c0:8001::153` |
 | `@` | AAAA | `2606:50c0:8002::153` |
 | `@` | AAAA | `2606:50c0:8003::153` |
-| `www` | CNAME | `<OWNER>.github.io` (your GitHub username or org, e.g. `aiparentingtips.github.io`; no repo name) |
-| `_github-pages-challenge-<OWNER>` | TXT | *optional:* value from GitHub > Settings > Pages > Add a domain (stops anyone else claiming the domain on GitHub) |
+| `www` | CNAME | `35hunter35.github.io` (no repo name, no https://) |
+| `_github-pages-challenge-35hunter35` | TXT | *optional:* value from GitHub > Settings > Pages > Add a domain (stops anyone else claiming the domain on GitHub) |
 
 How the domains behave: `aiparentingtips.com` (the root, or "apex") serves the site. `www.aiparentingtips.com` gets an automatic 301 redirect to the root from GitHub, because the repo's `CNAME` file says `aiparentingtips.com`.
 
@@ -133,15 +133,12 @@ Only if you decide to move DNS to Cloudflare (registration can stay at Squarespa
 
 ---
 
-## Hooking up the beehiiv signup form
-The forms on `index.html` and `about.html` currently use a **fallback**: a normal form that sends visitors to `https://aiparentingtips.beehiiv.com/subscribe` (with `?email=` added). It works with no setup, but visitors may have to type their email again on beehiiv's page.
-
-For one-click signup on the site itself (free plan supported, per beehiiv's help article "Creating an embedded subscribe form"):
-1. beehiiv dashboard > **Subscribers > Subscribe forms > Create new form**.
-2. Content tab: set the button text to **Get the free tips**. Style tab > Embed: **Layout: Slim** (or Regular, which is better on mobile), **Embed type: Inline**. Colors: button `#E4572E`, text `#FFFFFF`.
-3. Settings tab: show a success message, or redirect to `https://aiparentingtips.com/?subscribed=1`.
-4. **Save & get embed code** and copy the single `<script>` tag.
-5. In `index.html` (2 spots) and `about.html` (1 spot), paste it inside `<div class="beehiiv-embed"></div>` and delete the `<form class="fallback-form">…</form>` that follows. Search for `BEEHIIV EMBED PLACEHOLDER`.
+## beehiiv signup form (done)
+All 3 signup spots (2 on `index.html`, 1 on `about.html`) use the real beehiiv embed:
+`<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c7cb087d-0bfc-48ca-b273-b33df584c91f"></script>`.
+A `<noscript>` fallback form sends visitors without JavaScript to `https://aiparentingtips.beehiiv.com/subscribe`.
+To change the form's look (it's an iframe, so the site's CSS can't style it), edit it in beehiiv > Subscribers > Subscribe forms > (this form) > Style, then **Publish**. The embed code doesn't change.
+Tip for mobile: Style > Background > Width **Fill**, or use the **Regular** layout, so the email box isn't squeezed on phones.
 
 ## Publishing a new issue page
 Copy `tips/_template.html` to `tips/<keyword-slug>.html` and follow the comment at the top of the file: replace the REPLACE markers, switch robots to `index,follow`, and add the page to `tips/index.html` and `sitemap.xml`.
