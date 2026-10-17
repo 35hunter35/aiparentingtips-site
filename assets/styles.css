@@ -105,3 +105,4 @@ h2,h3{text-wrap:balance}
 /* beehiiv embed: let the iframe use the full card width */
 .signup:has(.beehiiv-embed iframe){padding:.25rem;overflow:hidden}
 .beehiiv-embed iframe{border-radius:14px}
+.signup-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;margin:1.5rem 0;box-shadow:var(--shadow);text-align:center}.signup-box h2{margin-top:0}
