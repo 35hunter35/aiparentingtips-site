@@ -70,6 +70,7 @@ p{margin:0 0 1em}
 .signup form .row input{flex:1}
 @media (min-width:560px){.signup form .row{flex-direction:row}}
 .signup:has(.beehiiv-embed iframe){padding:.3rem;overflow:hidden}
+.signup:has(.beehiiv-embed iframe){background:transparent;box-shadow:none;padding:0}
 .beehiiv-embed iframe{border-radius:16px}
 
 /* sections */
