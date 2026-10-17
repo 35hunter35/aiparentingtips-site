@@ -1,6 +1,6 @@
 # Deploying aiparentingtips.com (free)
 
-**Status:** Nothing is deployed yet. No accounts were created and no DNS was changed. The current records listed in step 4b come from a read-only public DNS lookup on Oct 17, 2026.
+**Status (Oct 17, 2026):** the site is live on GitHub Pages from repo https://github.com/35hunter35/aiparentingtips-site (branch `main`, root folder). The custom domain is set to `aiparentingtips.com`, Enforce HTTPS is **off** for now, and the first build succeeded. https://35hunter35.github.io/aiparentingtips-site/ 301-redirects to aiparentingtips.com, which keeps showing the Squarespace parking page **until the DNS changes in step 4 are made**. Steps 1–3 below are done.
 
 **Nameservers:** GitHub Pages (the pick) works with DNS kept at Squarespace, so you **don't** need to move nameservers.
 
@@ -108,7 +108,7 @@ Under **Custom records** > **Add record**, one at a time (TTL: leave the default
 | `@` | AAAA | `2606:50c0:8002::153` |
 | `@` | AAAA | `2606:50c0:8003::153` |
 | `www` | CNAME | `35hunter35.github.io` (no repo name, no https://) |
-| `_github-pages-challenge-35hunter35` | TXT | *optional:* value from GitHub > Settings > Pages > Add a domain (stops anyone else claiming the domain on GitHub) |
+| `_github-pages-challenge-35hunter35` | TXT | *recommended:* GitHub's REST API doesn't expose this value. Get it at https://github.com/settings/pages > **Verified domains > Add a domain** > `aiparentingtips.com`. Squarespace may want only the part before `.aiparentingtips.com` as the host. After adding it, click **Verify** on GitHub. |
 
 How the domains behave: `aiparentingtips.com` (the root, or "apex") serves the site. `www.aiparentingtips.com` gets an automatic 301 redirect to the root from GitHub, because the repo's `CNAME` file says `aiparentingtips.com`.
 
