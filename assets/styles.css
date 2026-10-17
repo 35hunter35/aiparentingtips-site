@@ -1,0 +1,107 @@
+/* AI Parenting Tips: mobile-first, no build step */
+:root{
+  --bg:#FFF8F0; --surface:#FFFFFF; --ink:#2B2A33; --muted:#5E5A66;
+  --brand:#E4572E; --brand-ink:#B83A16; --sun:#FFD166; --sage:#2F7D6D; --sage-soft:#E6F2EE;
+  --line:#EFE2D3; --radius:18px; --shadow:0 6px 24px rgba(91,52,26,.08);
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-head:ui-rounded,"SF Pro Rounded","Nunito","Segoe UI",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.65 var(--font)}
+img,svg{max-width:100%;height:auto}
+a{color:var(--brand-ink);text-underline-offset:.18em}
+a:hover{color:var(--brand)}
+:focus-visible{outline:3px solid var(--sage);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-head);line-height:1.2;letter-spacing:-.01em;margin:0 0 .6em}
+h1{font-size:clamp(2rem,6.5vw,3.25rem);text-wrap:balance}
+h2{font-size:clamp(1.5rem,4vw,2rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+.wrap{width:min(100% - 2.5rem,68rem);margin-inline:auto}
+.narrow{width:min(100% - 2.5rem,44rem);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.6rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+
+/* header */
+.site-header{padding:1rem 0;border-bottom:1px solid var(--line);background:var(--bg)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink);font:800 1.2rem/1 var(--font-head)}
+.logo svg{width:34px;height:34px;flex:none}
+.logo .ai{background:var(--brand);color:#fff;border-radius:8px;padding:.15em .4em;margin-right:.1em}
+.nav{display:flex;gap:1.1rem;font-weight:600;font-size:.98rem}
+.nav a{color:var(--ink);text-decoration:none}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--brand-ink);text-decoration:underline}
+
+/* hero */
+.hero{padding:3rem 0 2.5rem;text-align:center}
+.hero .eyebrow{display:inline-block;background:var(--sage-soft);color:var(--sage);font-weight:700;font-size:.85rem;padding:.35rem .8rem;border-radius:999px;margin-bottom:1rem}
+.hero p.lede{font-size:clamp(1.1rem,2.6vw,1.3rem);color:var(--muted);max-width:38rem;margin:0 auto 1.75rem}
+
+/* signup */
+.signup{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.25rem;max-width:34rem;margin:0 auto;text-align:left}
+.signup form{display:flex;flex-direction:column;gap:.65rem}
+.signup label{font-weight:700;font-size:.95rem}
+.signup input[type=email]{font:inherit;padding:.85rem 1rem;border:2px solid #D9C9B8;border-radius:12px;background:#fff;color:var(--ink);width:100%}
+.signup input[type=email]:focus{border-color:var(--sage);outline:none;box-shadow:0 0 0 3px rgba(47,125,109,.25)}
+.btn{font:700 1.05rem/1 var(--font);background:var(--brand);color:#fff;border:0;border-radius:12px;padding:1rem 1.4rem;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn:hover{background:var(--brand-ink);color:#fff}
+.signup small{color:var(--muted);font-size:.85rem}
+.signup .beehiiv-embed:empty{display:none}
+.signup form .row{display:flex;flex-direction:column;gap:.6rem}
+@media (min-width:560px){.signup form .row{flex-direction:row}}
+
+/* sections */
+section{padding:2.75rem 0}
+.alt{background:#FFF1E3;border-block:1px solid var(--line)}
+.cards{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1rem}
+@media (min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;box-shadow:var(--shadow)}
+.card .ico{font-size:1.9rem;line-height:1;display:block;margin-bottom:.6rem}
+.card h3{margin-bottom:.35rem}
+.card p{color:var(--muted);margin:0}
+.center{text-align:center}
+
+/* faq */
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;margin-bottom:.75rem}
+.faq summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style-position:outside}
+.faq details[open] summary{margin-bottom:.5rem}
+.faq details p{margin:0;color:var(--muted)}
+
+/* article / tips */
+.page{padding:2.5rem 0 3rem}
+.breadcrumbs{font-size:.9rem;color:var(--muted);margin-bottom:1rem}
+.breadcrumbs ol{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.breadcrumbs li+li::before{content:"›";margin-right:.4rem;color:#B5A796}
+.meta{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem}
+.answer{background:var(--sage-soft);border-left:5px solid var(--sage);border-radius:12px;padding:1rem 1.2rem;font-size:1.1rem;margin-bottom:2rem}
+.answer p:last-child{margin:0}
+.steps{padding-left:1.3rem}
+.steps li{margin-bottom:.6rem}
+.prompt{position:relative;background:#2B2A33;color:#FFF6EC;border-radius:14px;padding:1.2rem;margin:1rem 0 2rem}
+.prompt pre{margin:0;white-space:pre-wrap;word-wrap:break-word;font:0.98rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.prompt .copy{position:absolute;top:.6rem;right:.6rem;font:700 .85rem var(--font);background:var(--sun);color:#2B2A33;border:0;border-radius:8px;padding:.45rem .75rem;cursor:pointer}
+.prompt-label{font-weight:700;margin-bottom:.4rem;display:block}
+.author{display:flex;gap:1rem;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem;margin:2rem 0}
+.avatar{flex:none;width:56px;height:56px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:800 1.2rem var(--font-head);color:#2B2A33}
+.author p{margin:0;color:var(--muted)}
+.related ul{padding-left:1.2rem}
+.tip-list{list-style:none;padding:0;display:grid;gap:1rem}
+.empty{background:var(--surface);border:2px dashed #E3CDB6;border-radius:var(--radius);padding:1.5rem;text-align:center;color:var(--muted)}
+.notice{background:#FFF3C4;border:1px solid #F1D77A;border-radius:12px;padding:.8rem 1rem;font-size:.95rem}
+
+/* footer */
+.site-footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.95rem}
+.site-footer .wrap{display:flex;flex-direction:column;gap:.75rem}
+.site-footer nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+.site-footer a{color:var(--ink);font-weight:600}
+@media (min-width:760px){.site-footer .wrap{flex-direction:row;justify-content:space-between;align-items:center}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.signup form .row input{flex:1}
+h2,h3{text-wrap:balance}
+.faq-visible h3{margin:1.2rem 0 .3rem}
+.faq-visible p{color:var(--muted)}
+.prompt{padding-top:3rem}
+/* beehiiv embed: let the iframe use the full card width */
+.signup:has(.beehiiv-embed iframe){padding:.25rem;overflow:hidden}
+.beehiiv-embed iframe{border-radius:14px}

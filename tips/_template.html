@@ -1,0 +1,240 @@
+<!doctype html>
+<!--
+  ISSUE PAGE TEMPLATE. How to use:
+  1. Copy to tips/<keyword-slug>.html (e.g. tips/ai-meal-planning-for-busy-weeknights.html).
+  2. Replace every REPLACE marker plus the sample content, and update <title>, meta description,
+     canonical, og:url, and all URLs/dates in the JSON-LD (Article, FAQPage, BreadcrumbList).
+  3. Change robots from "noindex,follow" to "index,follow".
+  4. Add the page to tips/index.html and sitemap.xml.
+  Layout for SEO + AI search: question H1 -> 2-3 sentence direct answer -> steps -> copyable prompt
+  -> visible FAQ (mirrors FAQPage JSON-LD) -> author box -> related links.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How can I use AI to plan a week of family dinners in 5 minutes? | AI Parenting Tips</title>
+<meta name="description" content="REPLACE: 140-160 character answer-first summary of this tip.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://aiparentingtips.com/tips/_template.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#E4572E">
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Parenting Tips">
+<meta property="og:title" content="How can I use AI to plan a week of family dinners in 5 minutes? | AI Parenting Tips">
+<meta property="og:description" content="REPLACE: 140-160 character answer-first summary of this tip.">
+<meta property="og:url" content="https://aiparentingtips.com/tips/_template.html">
+<meta property="og:image" content="https://aiparentingtips.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI Parenting Tips: one simple AI trick a week to make family life easier">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@aiparentingtips">
+<meta name="twitter:creator" content="@aiparentingtips">
+<meta name="twitter:title" content="How can I use AI to plan a week of family dinners in 5 minutes? | AI Parenting Tips">
+<meta name="twitter:description" content="REPLACE: 140-160 character answer-first summary of this tip.">
+<meta name="twitter:image" content="https://aiparentingtips.com/assets/og-image.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://aiparentingtips.com/#organization",
+   "name": "AI Parenting Tips",
+   "url": "https://aiparentingtips.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://aiparentingtips.com/assets/logo-512.png",
+    "width": 512,
+    "height": 512
+   },
+   "sameAs": [
+    "https://x.com/aiparentingtips"
+   ],
+   "founder": {
+    "@type": "Person",
+    "@id": "https://aiparentingtips.com/about.html#adam",
+    "name": "Adam Hunter"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://aiparentingtips.com/#website",
+   "name": "AI Parenting Tips",
+   "url": "https://aiparentingtips.com/",
+   "inLanguage": "en-US",
+   "description": "One simple AI trick a week to make family life easier. Copy-paste AI prompts for busy parents.",
+   "publisher": {
+    "@id": "https://aiparentingtips.com/#organization"
+   }
+  },
+  {
+   "@type": "Article",
+   "@id": "https://aiparentingtips.com/tips/_template.html#article",
+   "headline": "How can I use AI to plan a week of family dinners in 5 minutes?",
+   "description": "REPLACE: 1-sentence summary (140-160 chars).",
+   "image": [
+    "https://aiparentingtips.com/assets/og-image.png"
+   ],
+   "datePublished": "2026-10-27T07:00:00-04:00",
+   "dateModified": "2026-10-27T07:00:00-04:00",
+   "author": {
+    "@id": "https://aiparentingtips.com/about.html#adam",
+    "@type": "Person",
+    "name": "Adam Hunter",
+    "url": "https://aiparentingtips.com/about.html"
+   },
+   "publisher": {
+    "@id": "https://aiparentingtips.com/#organization"
+   },
+   "mainEntityOfPage": "https://aiparentingtips.com/tips/_template.html",
+   "isPartOf": {
+    "@id": "https://aiparentingtips.com/#website"
+   },
+   "articleSection": "AI tips for parents",
+   "keywords": [
+    "AI for parents",
+    "AI meal planning",
+    "ChatGPT prompts for parents"
+   ],
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need the paid version of ChatGPT, Claude, or Grok?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. This prompt works in the free versions. Paid versions just handle longer lists better."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it safe to share my family's details?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Share food preferences and allergies, not names, schools, or addresses. The AI doesn't need them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if the AI suggests something my kids won't eat?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Reply with \"swap Tuesday for something without mushrooms\" and it will redo just that day."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://aiparentingtips.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Tips",
+     "item": "https://aiparentingtips.com/tips/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How can I use AI to plan a week of family dinners in 5 minutes?",
+     "item": "https://aiparentingtips.com/tips/_template.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+ <div class="wrap">
+  <a class="logo" href="/" aria-label="AI Parenting Tips home"><svg aria-hidden="true" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#E4572E"/><path d="M32 50s-15-8.6-15-20.2C17 24.4 21 21 25.4 21c3 0 5.3 1.6 6.6 3.8C33.3 22.6 35.6 21 38.6 21 43 21 47 24.4 47 29.8 47 41.4 32 50 32 50z" fill="#FFF6EC"/><path d="M48 9l2.2 5.3L55.5 16.5 50.2 18.7 48 24l-2.2-5.3-5.3-2.2 5.3-2.2z" fill="#FFD166"/></svg><span><span class="ai">AI</span> Parenting Tips</span></a>
+  <nav class="nav" aria-label="Main"><a href="/tips/" aria-current="page">Tips</a><a href="/about.html">About</a><a href="/#subscribe">Subscribe</a></nav>
+ </div>
+</header>
+<main id="main" class="page">
+ <article class="narrow">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/tips/">Tips</a></li><li aria-current="page">Meal planning</li></ol></nav>
+  <h1>How can I use AI to plan a week of family dinners in 5 minutes?</h1>
+  <p class="meta">By <a href="/about.html">Adam Hunter</a> · Issue #1 · <time datetime="2026-10-27">October 27, 2026</time> · 3-minute read</p>
+
+  <div class="answer" role="note" aria-label="Short answer">
+   <p><strong>Short answer:</strong> Paste the prompt below into ChatGPT, Claude, or Grok with your family's preferences, and it will write five weeknight dinners plus one grocery list sorted by aisle. It takes about five minutes, and you can ask it to swap any meal your kids won't eat.</p>
+  </div>
+
+  <h2>How to do it</h2>
+  <ol class="steps">
+   <li>Open ChatGPT, Claude, or Grok. The free version is fine.</li>
+   <li>Copy the prompt below and fill in the parts in [brackets].</li>
+   <li>Read the plan and reply with swaps, like "no fish on Wednesday."</li>
+   <li>Ask: "Now give me the grocery list grouped by store section."</li>
+  </ol>
+
+  <span class="prompt-label" id="prompt-label">Copy-paste prompt</span>
+  <div class="prompt" aria-labelledby="prompt-label">
+   <button class="copy" type="button" data-copy="prompt-1">Copy</button>
+<pre id="prompt-1">You are a practical family meal planner. Plan 5 weeknight dinners for a family of [number] with kids aged [ages].
+Rules: each dinner takes 30 minutes or less, uses [allergies/dislikes] as hard limits, and reuses ingredients across meals to cut waste.
+Then give me one grocery list grouped by store section, with quantities.</pre>
+  </div>
+
+  <p class="notice"><strong>Double-check:</strong> AI can get allergens and cooking temperatures wrong. Always check labels and cook meat to safe temperatures.</p>
+
+  <section class="faq-visible" aria-labelledby="faq-h" style="padding:1.5rem 0 0">
+   <h2 id="faq-h">FAQ</h2>
+   <h3>Do I need the paid version of ChatGPT, Claude, or Grok?</h3>
+   <p>No. This prompt works in the free versions. Paid versions just handle longer lists better.</p>
+   <h3>Is it safe to share my family's details?</h3>
+   <p>Share food preferences and allergies, not names, schools, or addresses. The AI doesn't need them.</p>
+   <h3>What if the AI suggests something my kids won't eat?</h3>
+   <p>Reply with "swap Tuesday for something without mushrooms" and it will redo just that day.</p>
+  </section>
+
+  <aside class="author" aria-label="About the author">
+   <div class="avatar" aria-hidden="true">AH</div>
+   <div><strong><a href="/about.html">Adam Hunter</a></strong><p>Dad of two who works in AI. Tests every prompt at home before it goes in the newsletter. <a href="https://x.com/aiparentingtips" rel="me noopener">@aiparentingtips</a></p></div>
+  </aside>
+
+  <section class="related" aria-labelledby="rel-h" style="padding:0">
+   <h2 id="rel-h">Related tips</h2>
+   <ul>
+    <li><a href="/tips/">REPLACE: Related tip title (link to /tips/slug.html)</a></li>
+    <li><a href="/tips/">All AI tips for parents</a></li>
+    <li><a href="/#subscribe">Get one new tip every Tuesday</a></li>
+   </ul>
+  </section>
+ </article>
+</main>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+ var t=document.getElementById(b.dataset.copy).innerText;
+ navigator.clipboard.writeText(t).then(function(){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy'},2000)});
+})});
+</script>
+<footer class="site-footer">
+ <div class="wrap">
+  <p style="margin:0">&copy; 2026 AI Parenting Tips. Free, every Tuesday. Made by a dad of two.</p>
+  <nav aria-label="Footer">
+   <a href="https://x.com/aiparentingtips" rel="me noopener">X (@aiparentingtips)</a>
+   <a href="/about.html">About</a>
+   <a href="/privacy.html">Privacy</a>
+  </nav>
+ </div>
+</footer>
+</body>
+</html>
