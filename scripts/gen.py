@@ -8,7 +8,7 @@ header_html=tpl[tpl.index("<body>"):tpl.index('<main id="main"')]
 footer_html=tpl[tpl.index("<script>\ndocument"):]
 footer_html=footer_html.replace('<script>\ndocument','<script>\ndocument',1)
 B="https://aiparentingtips.com"
-SAFE_AGE="Most AI chatbots require users to be at least 13 (with a parent's permission under 18), and Claude requires users to be 18 or older, so check each tool's age rules before a child uses it."
+SAFE_AGE="Most AI chatbots are for ages 13 and up (ChatGPT and Grok also need a parent's permission under 18), and Claude is 18+, so check each tool's age rules before a child uses it."
 P=[
 dict(slug="ai-meal-plan-for-picky-eaters",crumb="Picky eaters",query="picky eater meal plan / chatgpt meal plan prompt",
  h1="How can I use AI to make a meal plan for a picky eater?",
@@ -30,7 +30,7 @@ dict(slug="chatgpt-homework-help-without-cheating",crumb="Homework help",query="
  title="ChatGPT Homework Help Without Cheating: A Tutor Prompt",
  desc="Turn ChatGPT, Claude, Gemini, or Grok into a patient tutor that gives hints and asks questions instead of handing over answers. Free copy-paste prompt.",
  answer="Set the AI up as a tutor before your kid asks anything. The prompt below tells it to ask questions, give one hint at a time, and never just hand over the final answer. Sit with your child while they use it, and check the school's AI rules first.",
- steps=["Check your school's or teacher's rules on AI for homework.","Open a free AI chatbot on your account, with your child next to you.","Paste the tutor prompt first, before the homework question.","Have your child type the problem and explain their thinking out loud.","If the AI slips and gives the answer, type: \"Remember, hints only.\""],
+ steps=["Check your school's or teacher's rules on AI for homework.","Open a free AI chatbot on your account, with your child next to you.","Paste the tutor prompt first, before the homework question.","Type the problem in together (you do the typing if your child is under 13, or if you're using Claude, which is 18+), and have your child explain their thinking out loud.","If the AI slips and gives the answer, type: \"Remember, hints only.\""],
  prompt="""You are a friendly, patient tutor for a student in grade [grade].
 The subject is [subject]. Your job is to help them learn, not to do the work.
 Rules:
@@ -43,9 +43,9 @@ Rules:
 The first problem is: [paste or type the problem]""",
  notice="<strong>Double-check:</strong> AI can make math and fact mistakes with total confidence. Have your child check answers against the textbook or class notes.",
  faq=[("Is using ChatGPT for homework cheating?","It depends on how it's used and on the school's rules. Copying an answer is cheating. Using AI as a tutor that asks questions and gives hints is closer to having a patient helper at the kitchen table."),
-  ("What age can kids use ChatGPT?","OpenAI requires users to be at least 13, with a parent's permission under 18. For younger kids, use it on your account while you sit with them."),
+  ("What age can kids use ChatGPT?","OpenAI requires users to be at least 13, with a parent's permission under 18. For kids under 13, you run it on your account: you type, read the hints out loud, and your child does the work on paper."),
   ("Does this work for math?","Yes. The hint-by-hint approach works especially well for math, but AI can still make arithmetic mistakes, so check the final work."),
-  ("Which AI is best for homework help?","The free versions of ChatGPT, Claude, Gemini, and Grok all follow this prompt. Pick the one your family is comfortable with and stick to it.")],
+  ("Which AI is best for homework help?","This prompt is written for the free versions of ChatGPT, Gemini, Grok, or Claude (Claude is 18+, so a parent should run it). Pick the one your family is comfortable with and stick to it.")],
  rel=["is-chatgpt-safe-for-kids","ai-bedtime-story-generator","ai-chore-chart-generator"]),
 dict(slug="ai-bedtime-story-generator",crumb="Bedtime stories",query="ai bedtime story generator free",
  h1="How do I use AI as a free bedtime story generator for my kids?",
@@ -115,7 +115,7 @@ dict(slug="is-chatgpt-safe-for-kids",crumb="AI safety for kids",query="is chatgp
  h1="Is ChatGPT safe for kids? A parent's simple guide",
  title="Is ChatGPT Safe for Kids? Age Rules and a Family AI Rules Prompt",
  desc="What parents should know about kids using ChatGPT, Claude, Gemini, and Grok: age rules, privacy, and a free prompt to write simple family AI rules.",
- answer="ChatGPT isn't designed for young kids. OpenAI requires users to be 13 or older, with a parent's permission under 18, and Claude requires users to be 18+. Under 13, the safest approach is using AI together on your account. For any age, set simple family rules, and the prompt below helps you write them.",
+ answer="ChatGPT isn't designed for young kids. OpenAI requires users to be 13 or older, with a parent's permission under 18, and Claude requires users to be 18+. If your child is under 13, you do the typing on your own account and talk about the answers together, or use an option made for kids' accounts, like Gemini through Google Family Link. For any age, set simple family rules, and the prompt below helps you write them.",
  steps=["Check the age rules for the tool your kid wants to use.","Use AI together first. Sit with younger kids and look at what they ask.","Paste the prompt below to draft your family's AI rules.","Print the rules and revisit them every few months as your kids grow."],
  prompt="""Help me write simple family rules for using AI chatbots like ChatGPT, Claude, Gemini, and Grok.
 My kids are ages [ages]. We use AI for [homework help / stories / curiosity questions].
@@ -128,9 +128,9 @@ Please write:
    - homework: AI can give hints, not do the work
 2. A short version of the rules for a fridge poster.
 3. 3 conversation starters I can use to talk with my kids about AI.""",
- notice="<strong>Good to know:</strong> "+SAFE_AGE+" Some tools also offer parental controls or teen settings, so look in each app's settings.",
+ notice="<strong>Good to know:</strong> Age rules differ by app. ChatGPT and Grok are 13+, with a parent's permission under 18. Meta AI, Snapchat's My AI, and Microsoft Copilot are 13+. Claude is 18+, and Character.AI no longer lets under-18s chat with characters. Parents can turn on Gemini for kids under 13 through Google Family Link. Rules change, so check the app's own terms first. Parent tools to look for: ChatGPT parental controls, Google Family Link, Meta AI supervision, Snapchat Family Center, and Microsoft Family Safety.</p>\n  <p class=\"notice\"><strong>Don't rely on parental alerts alone:</strong> In October 2026, <a href=\"https://www.npr.org/2026/10/09/nx-s1-5995514/chatgpt-openai-teens-mental-health\" rel=\"noopener\">NPR reported</a> that Common Sense Media found ChatGPT's teen parental alerts unreliable in crisis situations (OpenAI disputes how the test was run). Alerts can help, but keep talking with your kids about how they use AI.",
  faq=[("What age can kids use ChatGPT?","OpenAI's terms say users must be at least 13, and under-18 users need a parent's or guardian's permission. Check the current terms, since rules can change."),
-  ("Is Claude or Gemini safer for kids?","Claude requires users to be 18 or older. Google offers some Gemini options for younger users through family accounts. Whatever tool you choose, supervising and setting family rules matters more than the brand."),
+  ("Is Claude or Gemini safer for kids?","Claude is for adults only (18+). Google lets parents turn on the Gemini app for kids under 13 through a supervised Family Link account, though it's still rolling out and isn't offered in the EU or UK. Whatever tool you choose, sitting with your kid and setting family rules matter more than the brand."),
   ("What should kids never type into AI?","Their full name, school, address, phone number, photos of themselves, and passwords. The AI doesn't need any of it to help."),
   ("Can AI give kids wrong or inappropriate answers?","Yes. AI can make up facts and occasionally produce content that isn't right for kids. That's why using it together and talking about what you see matters.")],
  rel=["chatgpt-homework-help-without-cheating","ai-bedtime-story-generator","ai-chore-chart-generator"]),
@@ -273,7 +273,7 @@ tmain=f'''<main id="main">
 </section>
 <section>
  <div class="wrap">
-  <!-- Tip cards are generated by /workspace/tmp/gen.py -->
+  <!-- Tip cards are generated by scripts/gen.py -->
   <ul class="tip-list">
 {items}
   </ul>
