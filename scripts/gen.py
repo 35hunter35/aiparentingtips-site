@@ -9,6 +9,15 @@ footer_html=tpl[tpl.index("<script>\ndocument"):]
 footer_html=footer_html.replace('<script>\ndocument','<script>\ndocument',1)
 B="https://aiparentingtips.com"
 SAFE_AGE="Most AI chatbots are for ages 13 and up (ChatGPT and Grok also need a parent's permission under 18), and Claude is 18+, so check each tool's age rules before a child uses it."
+SAFE_SLUG="is-chatgpt-safe-for-kids"
+SAFE_AGE_LINKED=SAFE_AGE.replace("check each tool's age rules",f'<a href="/tips/{SAFE_SLUG}.html">check each tool\'s age rules</a>')
+# In-text links: write [[link text|/tips/slug.html]] in answer, steps, or FAQ answers.
+# HTML gets a real <a>; JSON-LD gets the plain link text.
+LINK=re.compile(r"\[\[(.+?)\|(.+?)\]\]")
+def plain(t): return LINK.sub(lambda m:m.group(1),t)
+def rich(t): return LINK.sub(lambda m:f'<a href="{m.group(2)}">{m.group(1)}</a>',html.escape(t,quote=False))
+import datetime
+def nice(d): x=datetime.date.fromisoformat(d); return f"{x:%B} {x.day}, {x.year}"
 P=[
 dict(slug="ai-meal-plan-for-picky-eaters",crumb="Picky eaters",query="picky eater meal plan / chatgpt meal plan prompt",
  h1="How can I use AI to make a meal plan for a picky eater?",
@@ -178,6 +187,188 @@ Use first initials only. Don't include addresses.""",
   ("Is it safe to put my family's schedule into AI?","Use initials and leave out addresses and school names. A schedule with times and initials is plenty for the AI to work with."),
   ("Can it help with a carpool?","Yes. List the families by initial and when each can drive, and ask for a fair rotation plus a group text to send.")],
  rel=["ai-chore-chart-generator","email-to-teacher-with-ai","ai-meal-plan-for-picky-eaters"]),
+dict(slug="chatgpt-parental-controls-setup",crumb="ChatGPT parental controls",query="chatgpt parental controls / how to set up chatgpt parental controls",
+ published="2026-10-18",minutes=4,
+ h1="How do I set up ChatGPT parental controls?",
+ title="How Do I Set Up ChatGPT Parental Controls? A 5-Minute Guide",
+ desc="Link your ChatGPT account to your teen's, then set quiet hours, study mode, and content limits. Plus what parents can and can't see (per OpenAI, Oct 2026).",
+ answer="On chatgpt.com, open Settings, choose Parental controls, then Add family member, and send your teen an invite by email or text. Once they accept, you can set quiet hours, start new chats in study mode, and switch off features like voice mode or image generation. Parental controls don't let you read your teen's chats, so they work best alongside a real conversation about [[how your family uses AI|/tips/is-chatgpt-safe-for-kids.html]].",
+ steps=["Sign in to your own ChatGPT account on the web at chatgpt.com. A free account is fine. OpenAI's steps for sending the invite are written for the web.",
+  "Open Settings from your profile menu, select Parental controls, then Add family member.",
+  "Pick Use phone or Use email, enter your teen's number or email, and select Send. Your teen can also invite you from their own Settings.",
+  "Your teen accepts from the text or email link. If the link opens ChatGPT without an Accept button, they sign in on the web, go to Settings > Parental controls, and accept the pending invite there.",
+  "Back in Settings > Parental controls, select your teen under Family members and choose their settings. The list below explains each one.",
+  "Under Safety notifications, select Manage notifications and check that the email or phone number is one you actually look at."],
+ prompts=[("Prompt 1: plan the talk with your teen first (paste into ChatGPT, Claude, Grok, or Gemini)","""Help me plan a calm, 10-minute talk with my [age]-year-old about linking our ChatGPT accounts with parental controls.
+What I want to set up: [quiet hours on school nights / study mode for homework / no image generation].
+What my teen mostly uses ChatGPT for: [homework / ideas / questions].
+Please give me:
+1. A friendly opening line that doesn't sound like I don't trust them.
+2. Three honest points to explain, including that I can't read their chats.
+3. Two questions to ask them, so they help choose the settings.
+4. A short, kind answer if they say "So you're spying on me?"
+Keep it warm and simple. No lectures."""),
+  ("Prompt 2: after you're linked, ask ChatGPT to explain your teen's settings (paste into your own ChatGPT)","""Show me the parental control settings for my linked teen.
+For each one, tell me in one plain sentence what it does and whether it's on or off right now.
+Don't change anything yet. I'll tell you what I want to change.""")],
+ extra='''  <h2>What you can change</h2>
+  <p>These are the settings OpenAI lists for a linked teen account, with their defaults:</p>
+  <ul class="list">
+   <li><strong>Quiet hours:</strong> times your teen can't use ChatGPT at all, like after 9 p.m. on school nights. Off until you set it. You can add more than one block.</li>
+   <li><strong>Study mode and Study hours:</strong> new chats can start in study mode, which gives hints and questions instead of answers. This doesn't block anything, and it's off by default. Pair it with our <a href="/tips/chatgpt-homework-help-without-cheating.html">homework tutor prompt</a>.</li>
+   <li><strong>Reduce sensitive content:</strong> on by default. Adds filters for things like graphic content, viral challenges, and romantic or violent roleplay.</li>
+   <li><strong>Voice Mode and Image generation:</strong> both on by default. Turn either off if you'd rather they not be used.</li>
+   <li><strong>Reference saved memories:</strong> whether ChatGPT remembers details across chats. Usually on by default.</li>
+   <li><strong>Improve the model for everyone:</strong> on by default. Turn it off if you don't want your teen's chats used to train OpenAI's models.</li>
+   <li><strong>Health:</strong> on by default where it's offered. Controls whether your teen can use ChatGPT's Health feature and connect health data. It doesn't stop general health questions.</li>
+  </ul>
+  <p>Some changes only apply to new chats, so ask your teen to start a fresh chat after you change something.</p>
+
+  <h2>What parental controls don't do</h2>
+  <ul class="list">
+   <li><strong>You can't read their chats.</strong> Linking doesn't show you your teen's conversations, chat history, or what they're doing in real time.</li>
+   <li><strong>Safety alerts are limited.</strong> OpenAI may notify you if trained reviewers spot a serious self-harm concern or signs of disordered eating, or if the account is deactivated over violence. Alerts don't include the conversation, they can take a few hours to start working after you link, and OpenAI says they won't catch everything.</li>
+   <li><strong>Your teen can unlink.</strong> Either of you can unlink at any time. If your teen does, you get a notification.</li>
+   <li><strong>One parent per teen.</strong> A teen can be linked to only one parent or guardian at a time. One parent can link several teens.</li>
+   <li><strong>It ends at 18.</strong> When ChatGPT identifies the account as 18 or older, the controls are removed and you're both notified.</li>
+  </ul>
+  <p class="meta">Checked against OpenAI's Help Center on October 18, 2026: <a href="https://help.openai.com/en/articles/12315553-managing-parental-controls-in-chatgpt" rel="noopener">Managing parental controls in ChatGPT</a> and <a href="https://help.openai.com/en/articles/20001421-chatgpt-for-teens" rel="noopener">ChatGPT for Teens</a>. Settings change, so check there if something looks different.</p>
+''',
+ notice="<strong>Don't rely on alerts alone:</strong> In October 2026, Common Sense Media <a href=\"https://www.commonsensemedia.org/press-releases/chatgpt-for-teens-poses-unacceptable-risk-to-kids-common-sense-media-finds\" rel=\"noopener\">rated ChatGPT for Teens an \"Unacceptable Risk\"</a>, partly because parent alerts didn't fire in its tests. OpenAI disputes how the tests were run. Use the controls, and keep talking with your teen. If your child is in crisis, call or text 988 (US).",
+ faq=[("Can I see my teen's ChatGPT chats?","No. OpenAI says parental controls don't give parents access to a teen's conversations, chat history, or real-time activity, and safety notifications don't include the chat either. If you want to know how they use it, ask them to show you. That works better than any setting."),
+  ("Does my teen have to agree to link accounts?","Yes. Your teen has to accept the invite before anything is linked, and either of you can unlink later. That's why it helps to talk first. Prompt 1 above helps you plan that talk."),
+  ("Can my kid under 13 use ChatGPT with parental controls?","No. OpenAI's rules say users must be 13 or older, with a parent's permission under 18. For younger kids, use ChatGPT together on your own account, and see [[our guide to AI age rules|/tips/is-chatgpt-safe-for-kids.html]]. A good first step is [[explaining what AI is|/tips/how-to-explain-ai-to-kids.html]]."),
+  ("Do I need a paid ChatGPT plan?","No. OpenAI says ChatGPT for Teens is available on Free and paid personal plans, and you can link from a free parent account."),
+  ("Can my teen get around quiet hours?","Quiet hours only cover the linked ChatGPT account. A teen could still use another account, another device, or another AI app. Device-level tools like Apple Screen Time or Google Family Link cover more, but the family rules you agree on together matter most.")],
+ rel=["is-chatgpt-safe-for-kids","chatgpt-homework-help-without-cheating","how-to-explain-ai-to-kids"]),
+dict(slug="chatgpt-coloring-pages-for-kids",crumb="Coloring pages",query="chatgpt coloring page prompt / ai coloring pages for kids",
+ published="2026-10-18",
+ h1="How do I make coloring pages for my kids with ChatGPT?",
+ title="How Do I Make Kids' Coloring Pages with ChatGPT? Free Prompt",
+ desc="Make a printable coloring page of anything your kid loves with free ChatGPT, Gemini, or Grok. Copy-paste prompt for thick, simple lines. No kid photo needed.",
+ answer="Tell the AI what your kid wants on the page and how old they are, then ask for thick black outlines on a plain white background with no shading. ChatGPT, Gemini, and Grok can all make the picture, and you just download it and print. You don't need to upload a photo of your child. Describe them instead, like curly hair and a dinosaur T-shirt, and it still feels like them.",
+ steps=["Ask your kid what they want to color: a unicorn at the beach, a fire truck, the hero from [[tonight's bedtime story|/tips/ai-bedtime-story-generator.html]].",
+  "Open an AI app that makes pictures: ChatGPT, Gemini, or Grok. Claude can't make images.",
+  "Paste Prompt 1 and fill in the [brackets].",
+  "Look at the picture before your kid does. If the lines are thin or it added gray shading, paste Prompt 3.",
+  "Download the image and print it with \"fit to page\" turned on.",
+  "Making a stack for a party? Run the prompt a few times with different scenes. It's an easy table activity for a [[kid's birthday party|/tips/ai-kids-birthday-party-planner.html]]."],
+ prompts=[("Prompt 1: the coloring page (paste into ChatGPT, Gemini, or Grok)","""Make a printable coloring page for a [age]-year-old.
+Picture: [a friendly dinosaur having a picnic in a park].
+Style rules:
+- Black outlines only, on a plain white background.
+- Thick, bold lines and big, simple shapes that are easy to color inside.
+- No shading, no gray, no color fill, no tiny details.
+- Leave plenty of white space.
+- Portrait layout that fits on one US Letter page.
+- [No words on the page / Add the word "[word]" in big outline letters at the top.]"""),
+  ("Prompt 2: a \"looks like my kid\" character, no photo needed","""Add a cartoon kid to this coloring page who looks like my child, based only on this description:
+[short curly hair, round glasses, a dinosaur T-shirt, rain boots, a big smile].
+Keep it a simple cartoon, with the same thick black outlines and no shading."""),
+  ("Prompt 3: fix a page that won't color well","""Redo this coloring page. Make every line thicker and bolder, remove all gray and shading, make the shapes bigger and simpler for a [age]-year-old, and keep the background plain white.""")],
+ extra='''  <h2>Tips for pages that color well</h2>
+  <ul class="list">
+   <li><strong>Simpler for little ones:</strong> for ages 2 to 4, ask for "one big object, very few lines." For ages 8 and up, you can ask for a full scene or a pattern border.</li>
+   <li><strong>Make a set:</strong> to keep the same character across pages, paste the same character description each time and change only the scene.</li>
+   <li><strong>Free limits:</strong> free plans cap how many images you can make in a day, and the limits change. If you hit one, try again tomorrow or switch apps.</li>
+   <li><strong>Seasonal pages:</strong> pumpkins, snowmen, or an elf to go with your <a href="/tips/ai-elf-on-the-shelf-ideas.html">Elf on the Shelf plan</a>.</li>
+  </ul>
+''',
+ notice="<strong>Skip the photo:</strong> Lots of posts online say to upload a photo of your child's face. You don't need to. A described cartoon is just as fun, and it keeps your kid's photo out of the AI app. If you want a real photo turned into a page, use one of the dog, a toy, or your house.",
+ faq=[("Can ChatGPT turn a photo into a coloring page?","Yes, it can trace a photo you upload. We suggest not using photos of your kids. Describe them instead with Prompt 2, or use a photo of a pet, a favorite toy, or your house. See [[what kids should never share with AI|/tips/is-chatgpt-safe-for-kids.html]]."),
+  ("Is it free?","Yes, with limits. The free versions of ChatGPT, Gemini, and Grok can make images but cap how many you get per day. You don't need a paid plan for a few pages."),
+  ("Which AI makes the best coloring pages?","Any of the three that make images will work if you use the style rules in Prompt 1. Results vary from one try to the next, so if a page comes out busy or shaded, use Prompt 3 rather than switching apps."),
+  ("Can my kid make their own pages?","Make them together on your account. Most AI apps are for ages 13 and up. Let your kid pick the scene and describe it, and you do the typing."),
+  ("Why did the AI add gray shading or color?","Image AIs like to add detail. Remind it of the rules: \"black outlines only, no shading, no gray.\" Usually one reminder fixes it.")],
+ rel=["ai-bedtime-story-generator","ai-kids-birthday-party-planner","ai-elf-on-the-shelf-ideas"]),
+dict(slug="how-to-explain-ai-to-kids",crumb="Explaining AI to kids",query="how to explain ai to a child / how to talk to kids about ai",
+ published="2026-10-18",minutes=4,
+ h1="How do I explain AI to my kid?",
+ title="How Do I Explain AI to My Kid? Simple Scripts for Ages 4 to 14",
+ desc="Simple, honest ways to explain AI to kids ages 4 to 14: ready-to-say scripts, three family rules, and a free prompt that explains AI through your kid's hobby.",
+ answer="Keep it short and true. AI is a computer program that learned from a huge pile of words and pictures, so it's very good at guessing what to say next, but it doesn't think or feel like a person, and it can be wrong. Pick the script for your kid's age below, then try the guessing game together so they see it make something up.",
+ steps=["Pick the script below that fits your kid's age and say it in your own words.",
+  "Play the guessing game in Prompt 2 together on your own account. Kids remember \"the AI fooled me\" much better than a lecture.",
+  "Share the three family rules and stick them on the fridge.",
+  "Come back to it when they're older or start using AI for school, using [[our homework tutor prompt|/tips/chatgpt-homework-help-without-cheating.html]]."],
+ extra='''  <h2>What to say, by age</h2>
+  <ul class="list">
+   <li><strong>Ages 4 to 6:</strong> "AI is a computer helper that has read lots and lots of books. When you ask it something, it guesses a good answer. It's not alive and it doesn't have feelings, and sometimes it guesses wrong, so we check with a grown-up."</li>
+   <li><strong>Ages 7 to 9:</strong> "AI learned by looking at millions of stories, websites, and pictures. It finds patterns, like how you know what word comes next in a song. That makes it good at writing and answering, but it can mix things up or make up facts that sound real."</li>
+   <li><strong>Ages 10 to 12:</strong> "Chatbots like ChatGPT predict the next word, over and over, based on patterns from a huge amount of text. They don't look things up the way you'd check a book, unless they're searching the web, and even then they can be wrong. So treat AI like a fast helper, not the final answer."</li>
+   <li><strong>Ages 13 to 14:</strong> "AI is trained on huge amounts of data and generates the most likely answer. It can be really useful, and it can also be confidently wrong, biased, or used to make fake photos and videos. And it's built to be agreeable, so it may tell you what you want to hear. Use it, but think for yourself."</li>
+  </ul>
+
+  <h2>Three rules kids can remember</h2>
+  <ul class="list">
+   <li><strong>AI can be wrong.</strong> Check important facts with a book, a teacher, or a grown-up.</li>
+   <li><strong>Keep private stuff private.</strong> No full name, school, address, photos, or passwords.</li>
+   <li><strong>AI isn't a friend.</strong> It can sound friendly, but it's a tool. If anything feels weird or upsetting, tell a grown-up.</li>
+  </ul>
+''',
+ prompts=[("Prompt 1: explain AI using your kid's favorite thing (paste into ChatGPT, Claude, Grok, or Gemini)","""Explain what AI is to my [age]-year-old, who loves [soccer / Minecraft / horses].
+Rules:
+- 5 short sentences at most, in words a [age]-year-old understands.
+- Use one comparison from [their hobby].
+- Be honest: say AI isn't alive, doesn't have feelings, and can be wrong.
+- End with one question my kid can ask me about AI.
+I'll read it aloud, so keep it friendly and simple."""),
+  ("Prompt 2: the \"one fact is fake\" guessing game (do this together)","""Let's play a game with my [age]-year-old.
+Tell us 3 short facts about [octopuses]. Two must be true and one must be made up but sound real.
+Don't say which is fake until we guess.
+After we guess, tell us the answer and explain in one sentence why AI can sometimes say things that sound true but aren't.""")],
+ notice="<strong>Good to know:</strong> The game works because it's a true picture of AI. Chatbots can state made-up facts with total confidence. When it's real homework or a health question, check a trusted source.",
+ faq=[("What age should I start talking to my kid about AI?","As soon as they notice it, often around 4 to 6, when they hear a voice assistant or see a chatbot at home. Start with the simplest script and add more as they grow."),
+  ("Is AI alive? My kid keeps asking.","No. AI doesn't think, feel, or want things. It's a program that predicts words and pictures from patterns. It can sound like a person because it learned from things people wrote."),
+  ("Should my kid use AI?","It depends on their age and the app. Most AI chatbots are for 13 and up. For younger kids, use it together on your account. See [[our guide to AI age rules and safety|/tips/is-chatgpt-safe-for-kids.html]]. For teens on ChatGPT, [[parental controls|/tips/chatgpt-parental-controls-setup.html]] add some guardrails."),
+  ("What if my kid treats the chatbot like a friend?","Gently remind them it's a tool, even when it sounds friendly. Keep AI use in shared spaces like the kitchen, and make sure they know to come to you with anything that feels off.")],
+ rel=["is-chatgpt-safe-for-kids","chatgpt-homework-help-without-cheating","chatgpt-parental-controls-setup"]),
+dict(slug="ai-elf-on-the-shelf-ideas",crumb="Elf on the Shelf ideas",query="ai elf on the shelf ideas / elf on the shelf ideas chatgpt",
+ published="2026-10-18",
+ h1="How can AI help me plan Elf on the Shelf ideas?",
+ title="How Do I Plan Elf on the Shelf Ideas with AI? 24 Nights, Fast",
+ desc="Plan 24 nights of easy, kind Elf on the Shelf ideas with a free AI chatbot, using things you already have. Copy-paste prompts for setups and short elf notes.",
+ answer="Tell a free AI chatbot your kids' ages, what you have around the house, and how many minutes you've got each night, and ask for a 24-night calendar of quick, kind setups. Then ask it for short elf notes to leave out. The prompt keeps it safe and gentle: nothing scary or messy, nothing near the stove, and no threats about the naughty list.",
+ steps=["Paste Prompt 1 and fill in your kids' ages, your supplies, and your busiest nights.",
+  "Read the whole list once and cross out anything that doesn't fit your house, your pets, or your kids.",
+  "Put each night's idea in your phone calendar as a 9 p.m. reminder. [[Our family schedule prompt|/tips/ai-family-schedule-planner.html]] can merge it with everything else in December.",
+  "Use Prompt 2 for the notes. They're tiny stories, a lot like our [[bedtime story prompt|/tips/ai-bedtime-story-generator.html]].",
+  "Forgot a night? Paste Prompt 3 for a 2-minute save."],
+ prompts=[("Prompt 1: the 24-night plan (paste into ChatGPT, Claude, Grok, or Gemini)","""Plan 24 nights of Elf on the Shelf ideas for my kids, ages [5 and 8].
+Things we already have: [LEGO, toilet paper, mini marshmallows, paper, markers, stuffed animals, a toy car].
+Time I have most nights: [5 minutes]. Busy nights when it must take under 2 minutes: [Dec 3, 10, 17].
+Rules:
+- Use only things we already have. No buying anything.
+- Keep it kind and funny. Nothing scary, creepy, or gross, and no "elf in trouble or hurt" scenes.
+- No threats, no punishments, and nothing about the naughty list or "reporting" bad behavior.
+- Safe: no candles, matches, knives, medicine, cleaning products, or anything near the stove. Nothing up high that a kid might climb to reach.
+- Low mess: no flour, glitter, paint, or permanent markers.
+- No small loose pieces if a child is under 3. No chocolate, grapes, or raisins left where pets can reach.
+- Make 4 of the nights "kindness" nights, where the elf suggests something nice to do for someone else.
+Give me a table: Night | Setup (one sentence) | What you need | Minutes."""),
+  ("Prompt 2: short elf notes","""Write [24] short notes from our elf, [elf name], one for each night of this plan: [paste the plan or say "the plan above"].
+- 2 or 3 sentences each, easy for a [age]-year-old to read.
+- Warm, silly, and encouraging.
+- Never mention watching the kids, reporting to Santa, being naughty, or losing presents.
+- Don't use my kids' real names. Use "my friends" instead."""),
+  ("Prompt 3: I forgot, help!","""It's late and I forgot to move the elf. Give me 3 Elf on the Shelf ideas that take under 2 minutes, use things found in any kitchen or living room, and are safe and mess-free. Add one short elf note explaining why the elf was \"resting\" yesterday.""")],
+ extra='''  <h2>Ideas to skip, even if the AI suggests them</h2>
+  <ul class="list">
+   <li><strong>Anything with heat or sharp things:</strong> candles, lighters, the stove, the toaster, knives, scissors left out.</li>
+   <li><strong>Medicine cabinet or cleaning products:</strong> even as a joke, it teaches kids those are play things.</li>
+   <li><strong>Scary or "creepy" scenes:</strong> an elf that's hurt, trapped, or punished, or "evil elf" setups. Some kids find these upsetting at bedtime.</li>
+   <li><strong>Surveillance and threats:</strong> notes saying the elf is watching or will tell Santa. They can turn a fun tradition into a stressful one.</li>
+   <li><strong>Pet hazards:</strong> chocolate, grapes, raisins, or anything sweetened with xylitol left where the dog can reach it.</li>
+   <li><strong>AI photos of your kids with the elf:</strong> skip uploading their photos. An <a href="/tips/chatgpt-coloring-pages-for-kids.html">elf coloring page</a> made from a description is a fun swap.</li>
+  </ul>
+''',
+ notice="<strong>Read it first:</strong> AI doesn't know your house, your pets, or your kids. Read every idea before you set it up. Elf on the Shelf is a trademark of its owner, and this tip isn't affiliated with them.",
+ faq=[("Can ChatGPT really plan Elf on the Shelf ideas?","Yes. Give it your kids' ages, your supplies, and your time, and it'll draft a full 24-night plan in a minute or two. The rules in Prompt 1 matter, because without them AI ideas tend to be vague or need things you don't have."),
+  ("What do I do if I forget to move the elf?","Paste Prompt 3. You'll get three 2-minute ideas plus a note explaining the elf was resting. It happens to everyone."),
+  ("Should I make AI pictures of my kids with the elf?","We'd skip it. Those trends ask you to upload your child's photo. Make an [[elf coloring page|/tips/chatgpt-coloring-pages-for-kids.html]] from a description instead, or take a real photo yourself."),
+  ("How do I keep the elf cheap?","The prompt says \"use only things we already have,\" and you can add \"no food\" if you like. Toilet paper, LEGO, paper, and stuffed animals cover most nights."),
+  ("Is it okay to use the elf to get kids to behave?","Every family decides that for themselves. The prompts here keep the elf kind and leave out threats, which many parents find makes December calmer. Kindness nights are a gentle way to encourage good behavior.")],
+ rel=["chatgpt-coloring-pages-for-kids","ai-bedtime-story-generator","ai-family-schedule-planner"]),
 ]
 bys={p["slug"]:p for p in P}
 SIGNUP='''  <section class="signup-box" aria-labelledby="sub-h" id="subscribe">
@@ -205,37 +396,46 @@ for p in P:
     h=re.sub(r'(name="description"|og:description"|twitter:description") content="[^"]*"',lambda m:f'{m.group(1)} content="{e(p["desc"])}"',h)
     g=[{"@type":"Organization","@id":B+"/#organization","name":"AI Parenting Tips","url":B+"/","logo":{"@type":"ImageObject","url":B+"/assets/logo-512.png","width":512,"height":512},"sameAs":["https://x.com/aiparentingtips","https://www.instagram.com/aiparenting.tips/","https://www.tiktok.com/@aiparentingtips","https://www.youtube.com/@aiparentingtips"]},
      {"@type":"WebSite","@id":B+"/#website","name":"AI Parenting Tips","url":B+"/","publisher":{"@id":B+"/#organization"}},
-     {"@type":"Article","@id":url+"#article","headline":p["h1"],"description":p["desc"],"image":[B+"/assets/og-image.png"],"datePublished":DATE+"T07:00:00-04:00","dateModified":p.get("modified",DATE+"T07:00:00-04:00"),
+     {"@type":"Article","@id":url+"#article","headline":p["h1"],"description":p["desc"],"image":[B+"/assets/og-image.png"],"datePublished":p.get("published",DATE)+"T07:00:00-04:00","dateModified":p.get("modified",p.get("published",DATE)+"T07:00:00-04:00"),
       "author":{"@type":"Person","@id":B+"/about.html#adam","name":"Adam Hunter","url":B+"/about.html"},"publisher":{"@id":B+"/#organization"},"mainEntityOfPage":url,"isPartOf":{"@id":B+"/#website"},"articleSection":"AI tips for parents","inLanguage":"en-US"},
-     {"@type":"FAQPage","@id":url+"#faq","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in p["faq"]]},
+     {"@type":"FAQPage","@id":url+"#faq","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":plain(a)}} for q,a in p["faq"]]},
      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":B+"/"},{"@type":"ListItem","position":2,"name":"Tips","item":B+"/tips/"},{"@type":"ListItem","position":3,"name":p["h1"],"item":url}]}]
     h+='<script type="application/ld+json">\n'+json.dumps({"@context":"https://schema.org","@graph":g},indent=1,ensure_ascii=False)+"\n</script>\n</head>\n"
-    steps="\n".join(f"   <li>{e(s,quote=False)}</li>" for s in p["steps"])
-    faq="\n".join(f"   <h3>{e(q,quote=False)}</h3>\n   <p>{e(a,quote=False)}</p>" for q,a in p["faq"])
+    steps="\n".join(f"   <li>{rich(s)}</li>" for s in p["steps"])
+    faq="\n".join(f"   <h3>{e(q,quote=False)}</h3>\n   <p>{rich(a)}</p>" for q,a in p["faq"])
+    prompts=p.get("prompts",[(p.get("prompt_label",DEFAULT_LABEL),p["prompt"])] if "prompt" in p else [])
+    pblocks=[]
+    for i,(lab,txt) in enumerate(prompts,1):
+        lid="prompt-label" if i==1 else f"prompt-label-{i}"
+        pblocks.append(f'''  <span class="prompt-label" id="{lid}">{e(lab,quote=False)}</span>
+  <div class="prompt" aria-labelledby="{lid}">
+   <button class="copy" type="button" data-copy="prompt-{i}">Copy</button>
+<pre id="prompt-{i}">{e(txt,quote=False)}</pre>
+  </div>''')
+    pblock="\n\n".join(pblocks)
+    pub=p.get("published",DATE)
+    extra=p.get("extra","")
+    safe=SAFE_AGE if p["slug"]==SAFE_SLUG else SAFE_AGE_LINKED
     rel="\n".join(f'    <li><a href="/tips/{r}.html">{e(bys[r]["h1"],quote=False)}</a></li>' for r in p["rel"])
     body=f'''<main id="main" class="page">
  <article class="narrow">
   <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/tips/">Tips</a></li><li aria-current="page">{p["crumb"]}</li></ol></nav>
   <h1>{e(p["h1"],quote=False)}</h1>
-  <p class="meta">By <a href="/about.html">Adam Hunter</a> · <time datetime="{DATE}">October 17, 2026</time> · 3-minute read</p>
+  <p class="meta">By <a href="/about.html">Adam Hunter</a> · <time datetime="{pub}">{nice(pub)}</time> · {p.get("minutes",3)}-minute read</p>
 
   <div class="answer" role="note" aria-label="Short answer">
-   <p><strong>Short answer:</strong> {e(p["answer"],quote=False)}</p>
+   <p><strong>Short answer:</strong> {rich(p["answer"])}</p>
   </div>
 
-  <span class="prompt-label" id="prompt-label">{e(p.get("prompt_label",DEFAULT_LABEL),quote=False)}</span>
-  <div class="prompt" aria-labelledby="prompt-label">
-   <button class="copy" type="button" data-copy="prompt-1">Copy</button>
-<pre id="prompt-1">{e(p["prompt"],quote=False)}</pre>
-  </div>
+{pblock}
 
   <h2>How to do it</h2>
   <ol class="steps">
 {steps}
   </ol>
-
+{extra}
   <p class="notice">{p["notice"]}</p>
-  <p class="notice"><strong>Safety first:</strong> Don't type your kids' full names, school, address, or photos into any AI tool. It doesn't need them. {SAFE_AGE}</p>
+  <p class="notice"><strong>Safety first:</strong> Don't type your kids' full names, school, address, or photos into any AI tool. It doesn't need them. {safe}</p>
 
 {SIGNUP}
   <section class="faq-visible" aria-labelledby="faq-h" style="padding:1.5rem 0 0">
@@ -260,8 +460,9 @@ for p in P:
 '''
     open(f"{ROOT}/tips/{p['slug']}.html","w").write(h+header_html+body+footer_html)
 # tips index (redesign: teal page hero + icon cards; rebuilt on every run)
-ICONS={"ai-meal-plan-for-picky-eaters":"🥕","chatgpt-homework-help-without-cheating":"📚","ai-bedtime-story-generator":"🌙","ai-chore-chart-generator":"🧹","ai-kids-birthday-party-planner":"🎂","is-chatgpt-safe-for-kids":"🛡️","email-to-teacher-with-ai":"✉️","ai-family-schedule-planner":"📅"}
-items="\n".join(f'   <li class="card"><span class="ico" aria-hidden="true">{ICONS.get(p["slug"],"✨")}</span><h2><a href="/tips/{p["slug"]}.html">{e(p["h1"],quote=False)}</a></h2><p>{e(p["desc"],quote=False)}</p><span class="more">Get the prompt →</span></li>' for p in P)
+ICONS={"ai-meal-plan-for-picky-eaters":"🥕","chatgpt-homework-help-without-cheating":"📚","ai-bedtime-story-generator":"🌙","ai-chore-chart-generator":"🧹","ai-kids-birthday-party-planner":"🎂","is-chatgpt-safe-for-kids":"🛡️","email-to-teacher-with-ai":"✉️","ai-family-schedule-planner":"📅","chatgpt-parental-controls-setup":"🔐","chatgpt-coloring-pages-for-kids":"🖍️","how-to-explain-ai-to-kids":"🤖","ai-elf-on-the-shelf-ideas":"🎄"}
+IDX=sorted(P,key=lambda p:p.get("published",DATE),reverse=True)
+items="\n".join(f'   <li class="card"><span class="ico" aria-hidden="true">{ICONS.get(p["slug"],"✨")}</span><h2><a href="/tips/{p["slug"]}.html">{e(p["h1"],quote=False)}</a></h2><p>{e(p["desc"],quote=False)}</p><span class="more">Get the prompt →</span></li>' for p in IDX)
 ti=open(f"{ROOT}/tips/index.html").read()
 tmain=f'''<main id="main">
 <section class="page-hero">
@@ -282,8 +483,11 @@ tmain=f'''<main id="main">
 </section>
 </main>'''
 ti=re.sub(r'<main id="main".*?</main>',lambda m:tmain,ti,flags=re.S)
+HP='"hasPart": '+json.dumps([{"@type":"Article","headline":p["h1"],"url":f"{B}/tips/{p['slug']}.html"} for p in IDX])+','
 if '"hasPart"' not in ti:
-    ti=ti.replace('"name": "AI tips for parents",','"name": "AI tips for parents",\n   "hasPart": '+json.dumps([{"@type":"Article","headline":p["h1"],"url":f"{B}/tips/{p['slug']}.html"} for p in P])+',')
+    ti=ti.replace('"name": "AI tips for parents",','"name": "AI tips for parents",\n   '+HP)
+else:
+    ti=re.sub(r'"hasPart": \[.*?\],',lambda m:HP,ti,count=1)
 open(f"{ROOT}/tips/index.html","w").write(ti)
 # homepage
 ix=open(f"{ROOT}/index.html").read()
@@ -293,7 +497,7 @@ if "latest-h" not in ix:
     ix=ix.replace('<section aria-labelledby="faq">',sec+'<section aria-labelledby="faq">',1)
     open(f"{ROOT}/index.html","w").write(ix)
 sm=open(f"{ROOT}/sitemap.xml").read()
-urls="\n".join(f"  <url><loc>{B}/tips/{p['slug']}.html</loc><lastmod>{DATE}</lastmod></url>" for p in P)
+urls="\n".join(f"  <url><loc>{B}/tips/{p['slug']}.html</loc><lastmod>{p.get("lastmod",p.get("published",DATE))}</lastmod></url>" for p in P)
 sm=re.sub(r"  <url><loc>[^<]*/tips/[^<]+\.html</loc>.*\n","",sm)
 sm=re.sub(r"  <!-- Add each.*?-->",urls+"\n  <!-- Add each published issue: <url><loc>https://aiparentingtips.com/tips/SLUG.html</loc><lastmod>YYYY-MM-DD</lastmod></url> -->",sm)
 open(f"{ROOT}/sitemap.xml","w").write(sm)
