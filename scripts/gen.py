@@ -181,7 +181,7 @@ Use first initials only. Don't include addresses.""",
 ]
 bys={p["slug"]:p for p in P}
 SIGNUP='''  <section class="signup-box" aria-labelledby="sub-h" id="subscribe">
-   <h2 id="sub-h">Get one simple AI trick every Tuesday</h2>
+   <h2 id="sub-h">Get one simple AI trick every week</h2>
    <p>Free, 3 minutes to read, written by a dad of two. Unsubscribe anytime.</p>
    <div class="signup">
    <div class="beehiiv-embed"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c7cb087d-0bfc-48ca-b273-b33df584c91f"></script></div>
@@ -277,7 +277,7 @@ tmain=f'''<main id="main">
   <ul class="tip-list">
 {items}
   </ul>
-  <div class="empty"><p><strong>Want a new tip every Tuesday?</strong></p><p>Free, 3 minutes to read.</p><a class="btn" href="/#subscribe">Get the free tips</a></div>
+  <div class="empty"><p><strong>Want a new tip every week?</strong></p><p>Free, 3 minutes to read.</p><a class="btn" href="/#subscribe">Get the free tips</a></div>
  </div>
 </section>
 </main>'''
