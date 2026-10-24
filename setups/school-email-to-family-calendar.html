@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Do I Get AI to Read School Emails and Add Events to Our Family Calendar? | AI Parenting Tips</title>
+<meta name="description" content="Set up an AI assistant to scan school emails in Gmail and Outlook and add events to your family Google Calendar, with a review step, safety rules, and a no-setup fallback.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aiparentingtips.com/setups/school-email-to-family-calendar.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#074751">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&amp;display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Parenting Tips">
+<meta property="og:title" content="How Do I Get AI to Read School Emails and Add Events to Our Family Calendar? | AI Parenting Tips">
+<meta property="og:description" content="Set up an AI assistant to scan school emails in Gmail and Outlook and add events to your family Google Calendar, with a review step, safety rules, and a no-setup fallback.">
+<meta property="og:url" content="https://aiparentingtips.com/setups/school-email-to-family-calendar.html">
+<meta property="og:image" content="https://aiparentingtips.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI Parenting Tips: one simple AI trick a week to make family life easier">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@aiparentingtips">
+<meta name="twitter:creator" content="@aiparentingtips">
+<meta name="twitter:title" content="How Do I Get AI to Read School Emails and Add Events to Our Family Calendar? | AI Parenting Tips">
+<meta name="twitter:description" content="Set up an AI assistant to scan school emails in Gmail and Outlook and add events to your family Google Calendar, with a review step, safety rules, and a no-setup fallback.">
+<meta name="twitter:image" content="https://aiparentingtips.com/assets/og-image.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://aiparentingtips.com/#organization",
+   "name": "AI Parenting Tips",
+   "url": "https://aiparentingtips.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://aiparentingtips.com/assets/logo-512.png",
+    "width": 512,
+    "height": 512
+   },
+   "sameAs": [
+    "https://x.com/aiparentingtips",
+    "https://www.instagram.com/aiparenting.tips/",
+    "https://www.tiktok.com/@aiparentingtips",
+    "https://www.youtube.com/@aiparentingtips"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://aiparentingtips.com/#website",
+   "name": "AI Parenting Tips",
+   "url": "https://aiparentingtips.com/",
+   "publisher": {
+    "@id": "https://aiparentingtips.com/#organization"
+   }
+  },
+  {
+   "@type": "Article",
+   "@id": "https://aiparentingtips.com/setups/school-email-to-family-calendar.html#article",
+   "headline": "How Do I Get AI to Read School Emails and Add Events to Our Family Calendar?",
+   "description": "Set up an AI assistant to scan school emails in Gmail and Outlook and add events to your family Google Calendar, with a review step, safety rules, and a no-setup fallback.",
+   "image": [
+    "https://aiparentingtips.com/setups/img/school-email-flow-example.png"
+   ],
+   "datePublished": "2026-10-24T08:30:00-04:00",
+   "dateModified": "2026-10-24T08:30:00-04:00",
+   "author": {
+    "@type": "Person",
+    "@id": "https://aiparentingtips.com/about.html#adam",
+    "name": "Adam Hunter",
+    "url": "https://aiparentingtips.com/about.html"
+   },
+   "publisher": {
+    "@id": "https://aiparentingtips.com/#organization"
+   },
+   "mainEntityOfPage": "https://aiparentingtips.com/setups/school-email-to-family-calendar.html",
+   "isPartOf": {
+    "@id": "https://aiparentingtips.com/#website"
+   },
+   "articleSection": "Setups",
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://aiparentingtips.com/setups/school-email-to-family-calendar.html#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Can AI automatically add events from email to Google Calendar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if the assistant has a calendar connector with write permission and a scheduled routine. Grok's Google Calendar connector can create events when write permission is enabled, and ChatGPT's Google Calendar plugin can create events too. Claude's docs conflict on whether it can. Whichever you use, I'd set it to list the events and ask you first. That's how mine runs every morning."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it safe to let AI read my school emails?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It can be reasonably safe if you limit it. Use OAuth connectors, read the permission screen, have it look only at school senders, never let it send or delete, and know how to disconnect. Check each company's privacy page for how it uses data from connected apps. OpenAI says it doesn't train on data from connected Google apps, with exceptions, but its general apps page says Free, Go, Plus and Pro data from apps may be used for training if \"Improve the model for everyone\" is on. Check that setting. OpenAI: Google app data FAQ, OpenAI: connected apps"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I do this for free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The paste-in fallback needs only a free chatbot. A hands-off routine that reads email and writes to a calendar generally needs a paid plan. ChatGPT Free does allow up to 3 scheduled tasks that run at most once a day. OpenAI: scheduled tasks"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can it check both Gmail and Outlook?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, with an assistant that connects to both. Mine checks both every morning. Grok has connectors for each, and ChatGPT lists Gmail and Outlook plugins."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do both parents see the events?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Put them on one shared family Google Calendar that both parents can see. When I approve one, it adds it to our shared family Google Calendar. That calendar also shows up on the wall calendar in our kitchen, so everyone sees the day's plan in the morning."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://aiparentingtips.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Setups",
+     "item": "https://aiparentingtips.com/setups/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How Do I Get AI to Read School Emails and Add Events to Our Family Calendar?",
+     "item": "https://aiparentingtips.com/setups/school-email-to-family-calendar.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+ <div class="wrap">
+  <a class="logo" href="/" aria-label="AI Parenting Tips home"><img src="/assets/logo-96.webp" width="42" height="42" alt=""><span>AI Parenting Tips</span></a>
+  <nav class="nav" aria-label="Main"><a href="/tips/">Tips</a><a href="/setups/" aria-current="page">Setups</a><a href="/about.html">About</a><a href="/#subscribe">Subscribe</a></nav>
+ </div>
+</header>
+<main id="main" class="page">
+ <article class="narrow">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/setups/">Setups</a></li><li aria-current="page">School email to calendar</li></ol></nav>
+  <h1>How Do I Get AI to Read School Emails and Add Events to Our Family Calendar?</h1>
+  <p class="meta">By <a href="/about.html">Adam Hunter</a> · <time datetime="2026-10-24">October 24, 2026</time> · 9-minute read</p>
+<div class="answer" role="note" aria-label="Short answer">
+   <p><strong>Short answer:</strong> Give an AI assistant read access to your email and permission to add events to one family calendar, then set a routine that checks for school emails every morning, pulls out the dates, and asks you which ones to add. I run this with a Grok Bot agent connected to our Gmail and Outlook.com inboxes and our family Google Calendar. Grok Bot is currently included in my SuperGrok subscription. If you'd rather not connect anything, paste a school email into any chatbot and ask for a list of events or a calendar file you can import.</p>
+  </div>
+<figure class="setup-fig"><img src="/setups/img/school-email-flow-example.png" alt="Example: school emails flow to an AI assistant, which lists the events, asks the parent which to add, then adds the chosen ones to the shared family calendar" loading="lazy" style="width:100%;height:auto;border-radius:14px"><figcaption><em>Example diagram, not a screenshot of a real account.</em></figcaption></figure>
+
+<h2>What this does</h2>
+<ul>
+<li>Finds school emails in your inbox (Gmail, Outlook, or both).</li>
+<li>Pulls out the things that belong on a calendar: event, date, time, place, which kid, what to bring.</li>
+<li>Asks you which ones to add. Then it puts the ones you pick on the shared family calendar, so everyone who can see that calendar sees the same plan.</li>
+<li><strong>Setup time:</strong> depends on how many accounts you connect. The paste-in version needs no setup.</li>
+<li><strong>Cost:</strong> the connected version needs a paid plan for the assistant you use (details below). The paste-in fallback works on free chatbots.</li>
+</ul>
+<h2>Who this is for</h2>
+<p>Parents who already use a chatbot and are tired of digging dates out of long school newsletters. You don't need to code. You do need to be comfortable giving an app permission to read your email, and to spend a minute reviewing what it adds.</p>
+<h2>What you need</h2>
+<ul>
+<li>An email account that gets the school emails (Gmail and/or Outlook).</li>
+<li>A Google Calendar the family shares. I suggest a separate "Family" calendar, not your main one, so the assistant only writes to one place.</li>
+<li>An AI assistant that can connect to email and calendar and run on a schedule. I use Grok Bot. Claude and ChatGPT options are covered further down.</li>
+<li><strong>Plan:</strong> Grok Bot comes with paid plans (a linked SuperGrok subscription, a Grok Business seat, or a paid Cursor plan). <a href="https://docs.x.ai/grok-bot/overview" rel="noopener">>Grok Bot overview</a></li>
+</ul>
+<h2>How my setup works (the main walkthrough)</h2>
+<p>My setup is an AI assistant with email and calendar connectors and a scheduled routine. It's a Grok Bot agent connected to my Gmail and Outlook.com inboxes and our family Google Calendar. Every morning it checks my inboxes for school emails, pulls out anything with a date, and sends me a short list of proposed events. Nothing goes on the calendar until I say yes. When I approve one, it adds it to our shared family Google Calendar. That calendar also shows up on the wall calendar in our kitchen, so everyone sees the day's plan in the morning. It never sends email (at most it drafts one for me to send) and never deletes events.</p>
+<p>Here's how to build the same thing.</p>
+<h3>Step 1: Make (or pick) the family calendar</h3>
+<p>In Google Calendar, create a calendar called something like "Family" and share it with the other parent. This keeps AI-added events in one place you can check, and easy to clean up if something goes wrong.</p>
+<h3>Step 2: Connect your email and calendar</h3>
+<p>In Grok Bot, open <strong>Connect apps</strong>, find Gmail, Outlook and Google Calendar, choose <strong>Add</strong>, and finish the sign-in for each. <a href="https://docs.x.ai/grok-bot/computer-and-apps" rel="noopener">>Grok Bot: connect an app</a></p>
+<p>Read the permission screen before you click Accept. Grok's connector docs list what each one can do. The Gmail connector starts read-only, and sending or deleting only comes with extra permissions. The Google Calendar connector needs write permission to create events. <a href="https://docs.x.ai/grok/connectors/gmail-google-calendar" rel="noopener">>Grok: Gmail &amp; Google Calendar connector</a></p>
+<p>The Outlook connectors ask for broader access: read/write mail, permission to send, and read/write calendar. That's another reason for the "never send, never delete" rules in Step 4. <a href="https://docs.x.ai/grok/connectors/outlook" rel="noopener">>Grok: Outlook Mail &amp; Calendar connector</a></p>
+<h3>Step 3: Do it once by hand first</h3>
+<p>Before you automate anything, ask the assistant to do one run while you watch:</p>
+<span class="prompt-label" id="prompt-label-1">First-run prompt</span>
+  <div class="prompt" aria-labelledby="prompt-label-1">
+   <button class="copy" type="button" data-copy="prompt-1">Copy</button>
+<pre id="prompt-1">Look in my Gmail and Outlook for emails from [school sender or domain] in the last 14 days. List every event with a date: event, date, start/end time, place, which child it's for (use "Kid A" / "Kid B"), what to bring or do, and which email it came from. Don't add anything yet.</pre>
+  </div>
+<p>Check the list against the emails. If it misses things or invents dates, fix the instructions now. That's what xAI's own guide suggests too: get a one-time task working before you automate it. <a href="https://docs.x.ai/grok-bot/skills-routines-and-automations" rel="noopener">>Grok Bot: skills and routines</a></p>
+<h3>Step 4: Turn it into a routine</h3>
+<p>Ask the assistant to make it a routine. Grok Bot routines run on a schedule you set, can run while your laptop is closed, and can be paused, tested, edited or deleted from the Bot's details. <a href="https://docs.x.ai/grok-bot/skills-routines-and-automations" rel="noopener">>Grok Bot: skills and routines</a></p>
+<p><strong>Here's the routine instruction I'd start with (adapted from mine, not copied word for word):</strong></p>
+<span class="prompt-label" id="prompt-label-2">Routine instruction</span>
+  <div class="prompt" aria-labelledby="prompt-label-2">
+   <button class="copy" type="button" data-copy="prompt-2">Copy</button>
+<pre id="prompt-2">Every morning at [time], check my Gmail and Outlook for new emails from these school senders: [list senders or domains]. Ignore everything else in my inbox.
+For each school email, find any event, deadline, or schedule change with a date.
+Rules:
+1. List the events you'd add and wait for my OK. After I approve, add them only to the "[Family]" Google Calendar.
+2. Before adding, check that calendar for an event with the same name and date. If one exists, don't add a duplicate. Tell me instead.
+3. Put the original email's subject and date in the event description so I can check it.
+4. If a date, time, or year is unclear, don't guess. List it under "Needs a look" instead of adding it.
+5. Never send, reply to, forward, or delete any email. Never delete or change an event you didn't create in this routine.
+6. Use "Kid A" / "Kid B" instead of names in event titles.
+7. After adding, send me a short summary in this chat: what you added, what you skipped, and what needs a look. If you couldn't reach my email, say so instead of using old information.</pre>
+  </div>
+<p>Once it's been reliably right for a few weeks, you can let it add events without asking, but I still have mine ask first.</p>
+<figure class="setup-fig"><img src="/setups/img/extracted-events-example-data.png" alt="Example data: a table of events pulled from fictional school emails, with one row flagged to check" loading="lazy" style="width:100%;height:auto;border-radius:14px"><figcaption><em>Example data. Not real events, kids, or schools.</em></figcaption></figure>
+
+<h3>Step 5: Answer the morning list</h3>
+<p>Each morning, read the list, check anything marked "Needs a look" against the original email, and reply with the numbers to add. For the first week or two, also open the calendar and compare a few events against the emails.</p>
+<p><strong>Grok without Grok Bot?</strong> On grok.com, Automations do a similar job. They run on a schedule (daily, weekdays, weekly and so on) or when a matching email arrives, they can use your connectors, and they report back by email or app notification. <a href="https://x.ai/news/grok-automations" rel="noopener">>xAI: Automations in Grok</a> Note that Grok's Outlook connector docs mention signing in with a Microsoft work or school account. <a href="https://docs.x.ai/grok/connectors/outlook" rel="noopener">>Grok: Outlook connector</a></p>
+  <section class="signup-box" aria-labelledby="sub-h1" id="subscribe">
+   <h2 id="sub-h1">Get one real setup a week.</h2>
+   <p>Free, from a dad who runs his house (and this newsletter) with AI helpers. Unsubscribe anytime.</p>
+   <div class="signup">
+   <div class="beehiiv-embed"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c7cb087d-0bfc-48ca-b273-b33df584c91f"></script></div>
+   <noscript>
+    <p class="fallback-form">To subscribe, please turn on JavaScript, or email <a href="mailto:hello@aiparentingtips.com?subject=Subscribe">hello@aiparentingtips.com</a> and we'll add you. <a href="/privacy.html">Privacy</a></p>
+   </noscript>
+   </div>
+  </section>
+<h2>Using Claude or ChatGPT instead?</h2>
+<p>Both can get you most of the way, but each has limits that matter for this job. Plans and features change fast, so check the linked pages before you pay for anything.</p>
+<p><strong>ChatGPT</strong>
+- <strong>Connectors:</strong> ChatGPT can connect Gmail and Google Calendar from its Settings (listed under Apps or Plugins, depending on your version). OpenAI's guide shows it creating calendar events, and its example prompt asks ChatGPT to show you everything before it creates the event. <a href="https://learn.chatgpt.com/training/walkthroughs/plugins-and-skills" rel="noopener">>ChatGPT Learn: plugins</a>, <a href="https://help.openai.com/en/articles/11487775-connected-apps-in-chatgpt" rel="noopener">>OpenAI: connected apps</a> Availability depends on your plan, region and workspace. Connecting more than one Google account is available on supported Plus, Pro, Business and Enterprise plans. <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes-whats-new" rel="noopener">>OpenAI: ChatGPT release notes, Aug 28, 2026</a> Outlook Email and Outlook Calendar plugins are also listed. <a href="https://learn.chatgpt.com/training/walkthroughs/plugins-and-skills" rel="noopener">>ChatGPT Learn</a>
+- <strong>Scheduled tasks:</strong> Free and Go plans get 3 active tasks that run at most once a day in a flexible time window. Plus gets 5. Hourly schedules and exact times need a paid plan. Tasks that start when a new Gmail message arrives need Plus or higher and run in ChatGPT's Work mode. Actions that send messages or change data may pause the task until you approve them. <a href="https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt" rel="noopener">>OpenAI: scheduled tasks</a></p>
+<p><strong>Claude</strong>
+- <strong>Connectors:</strong> Anthropic connects Gmail, Google Calendar and Google Drive. On Team and Enterprise, an owner has to turn them on first. Right now Anthropic's own pages disagree, both on which plans get these connectors and on whether Claude can add calendar events or only read them. Before you count on it, check whether it can add events or only read them by trying one by hand. If it can only read, have it build the list and add the events yourself, or use the paste-in fallback below. By default, Claude asks your approval before each action. <a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" rel="noopener">>Claude Help: Google Workspace connectors</a> (says all users; can create, update and delete events), <a href="https://claude.com/docs/connectors/google/calendar" rel="noopener">>Claude docs: Google Calendar</a> (says Pro, Max, Team and Enterprise; read-only)
+- <strong>Scheduled tasks:</strong> Available on paid plans (Pro, Max, Team, Enterprise) through Claude Cowork. They run in the cloud with your connectors, even when your computer is asleep. Cowork on web and mobile is in beta on Team plans. <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" rel="noopener">>Claude Help: scheduled tasks</a></p>
+<p><strong>Already pay for Gemini or Copilot?</strong> In Gmail on the web, Gemini can show an "Add to calendar" button on emails with event details. It adds the event to your primary calendar only, with no other guests, in English only, and it needs an eligible Google Workspace or Google AI plan. <a href="https://support.google.com/mail/answer/14355636?co=GENIE.Platform%3DDesktop&amp;hl=en" rel="noopener">>Gmail Help</a>, <a href="https://workspaceupdates.googleblog.com/2025/03/add-events-to-google-calendar-using-gemini-in-gmail.html" rel="noopener">>Google Workspace Updates</a> That's one email at a time, not a routine. Copilot in Outlook can add events through chat, but Microsoft says chat needs a work or school account and a Microsoft Copilot (work) license. <a href="https://support.microsoft.com/en-us/outlook/frequently-asked-questions-about-copilot-in-outlook" rel="noopener">>Microsoft: Copilot in Outlook FAQ</a></p>
+<h2>No-setup fallback: paste it in tonight</h2>
+<p>No connectors, no routine. Here's the prompt I'd start with in any free chatbot. Check its list against the email before adding anything.</p>
+<ol>
+<li>Open the school email and copy the text. Delete kids' full names, teacher names and anything else identifying first.</li>
+<li>Paste it into ChatGPT, Gemini, Grok or Claude with the prompt below.</li>
+<li>Check every date in its list against the email. If the table shows up as a jumble of | lines, ask it to "show that as a table."</li>
+<li>Either type the events in yourself, or save the calendar file it gives you as <code>school-events.ics</code>. Then on a computer, go to Google Calendar &gt; Settings &gt; Import &amp; export, pick the file, choose your Family calendar, and click Import. Import adds events; it won't update them later. <a href="https://support.google.com/calendar/answer/37118?hl=en" rel="noopener">>Google Calendar Help: import events</a></li>
+<li>After importing, fix or delete any event whose title starts with "CHECK:".</li>
+</ol>
+<p><strong>Copy-paste prompt:</strong></p>
+<p><em>Tested Oct 24, 2026 in Grok (Fast) with a sample school email: it caught every event and flagged both unclear dates. In free ChatGPT it caught everything but treated one unclear due date ("by Wednesday") as a single day, so always check dates before you import.</em></p>
+<span class="prompt-label" id="prompt-label-3">Copy-paste prompt</span>
+  <div class="prompt" aria-labelledby="prompt-label-3">
+   <button class="copy" type="button" data-copy="prompt-3">Copy</button>
+<pre id="prompt-3">Below is a school email. Pull out every event, deadline, or schedule change that has a date.
+1. First, tell me the date the email was sent. For every relative date ("next Friday", "by Wednesday", "this week"), write the exact date. If it could mean two different days, give both dates (like "Oct 30 or Nov 6") and mark it CHECK.
+2. Show a table: event, date (with day of week), start time, end time, place, which child ("Kid A"/"Kid B" or "all"), what to bring or do.
+3. Use only times and places written in the email. Never estimate a time or fill in a place. If there's no exact start time, write "all day". If the place isn't given, leave it blank. Write "CHECK" in any cell that's vague (like "first thing" or "around 6ish").
+4. Under the table, list "Ask the school": every date that could mean two days, and anything else marked CHECK.
+5. Then give me an .ics calendar file in a code block with every event from the table. Include BEGIN:VCALENDAR, VERSION:2.0 and a PRODID line, and give each event a unique UID and a SUMMARY. If any cell in a row says CHECK, start that SUMMARY with "CHECK: ". If a date could mean two days, put both in the SUMMARY, like "CHECK: Field trip (Oct 30 or Nov 6)", and use the later date. Only events with an exact start time written in the email get a time, using TZID=[America/New_York, or your time zone]. Everything else is all-day (VALUE=DATE).
+6. Don't add anything that isn't in the email.
+
+[paste email here]</pre>
+  </div>
+<p>If Google Calendar shows an error like "Processed 0 events," the file is probably missing its header or footer lines or has a bad time zone. Ask the chatbot to fix it, or add the events by hand. <a href="https://support.google.com/calendar/answer/45654" rel="noopener">>Google Calendar Help: fix import problems</a></p>
+<h2>Privacy and safety</h2>
+<ul>
+<li><strong>School email is kids' data.</strong> It can show your child's school, teacher, class, schedule, pickup times and when your family is away. Connect only accounts you're comfortable with, and keep it out of public or shared chats.</li>
+<li><strong>Least privilege.</strong> Give the routine only what it needs: read access to email and write access to one calendar. If a connector asks for send or delete permissions you don't need, think twice about connecting it, and write "never send, never delete" into your instructions.</li>
+<li><strong>Ask before acting.</strong> Start with "list, then wait for my OK." That's how I run mine. If you switch to auto-add later, know that anything it adds happens without you seeing it first.</li>
+<li><strong>Don't paste or forward school emails into public or shared tools when they name other kids.</strong> Class lists, group photos and other families' details aren't yours to share. Strip them first.</li>
+<li><strong>Check every date and time against the original email</strong> before you rely on it, especially the first few weeks.</li>
+<li><strong>Never let it send email or delete events.</strong> An agent replying to a teacher or deleting a real appointment is the expensive kind of mistake.</li>
+<li><strong>No names in titles.</strong> Use "Kid A" / "Kid B" or initials in event titles, especially if the calendar is shared beyond your household.</li>
+<li><strong>Know how to turn it off.</strong> Pause or delete the routine, and disconnect the app. For Google accounts you can also remove access at myaccount.google.com/permissions. <a href="https://docs.x.ai/grok/connectors/gmail-google-calendar" rel="noopener">>Grok: Gmail &amp; Calendar connector</a></li>
+</ul>
+<h2>What can go wrong (and fixes)</h2>
+<ul>
+<li><strong>Wrong date or year.</strong> "Next Friday" or "the 3rd" in a September email about January trips can trip it up. Fix: you see the list before anything is added, rule 4 sends anything unclear to "Needs a look," and each event's description names the source email.</li>
+<li><strong>Time zone off by hours.</strong> This usually comes from a calendar file with no time zone. Fix: ask for TZID in the .ics, or check the time in one imported event.</li>
+<li><strong>Duplicates.</strong> Reminder emails repeat the same event. Fix: rule 2 (check before adding).</li>
+<li><strong>Missed events.</strong> It can miss dates in images, PDFs or flyers. Some connectors can't see images embedded in emails at all. <a href="https://claude.com/docs/connectors/google/gmail" rel="noopener">>Claude docs: Gmail limitations</a> Fix: skim newsletters with attachments yourself.</li>
+<li><strong>Changes and cancellations.</strong> "Practice moved to 5:30" may get added as a new event instead of updating the old one. Fix: ask it to flag changes under "Needs a look" rather than edit events itself.</li>
+<li><strong>Connector errors.</strong> A connector may need you to sign in again, or a work account may need IT to approve it. <a href="https://docs.x.ai/grok/connectors/outlook" rel="noopener">>Grok: Outlook connector</a> Fix: rule 7 tells it to report the problem instead of quietly using old information.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>Can AI automatically add events from email to Google Calendar?</strong>
+Yes, if the assistant has a calendar connector with write permission and a scheduled routine. Grok's Google Calendar connector can create events when write permission is enabled, and ChatGPT's Google Calendar plugin can create events too. Claude's docs conflict on whether it can. Whichever you use, I'd set it to list the events and ask you first. That's how mine runs every morning.</p>
+<p><strong>Is it safe to let AI read my school emails?</strong>
+It can be reasonably safe if you limit it. Use OAuth connectors, read the permission screen, have it look only at school senders, never let it send or delete, and know how to disconnect. Check each company's privacy page for how it uses data from connected apps. OpenAI says it doesn't train on data from connected Google apps, with exceptions, but its general apps page says Free, Go, Plus and Pro data from apps may be used for training if "Improve the model for everyone" is on. Check that setting. <a href="https://help.openai.com/en/articles/10408842-google-app-data-controls-faq" rel="noopener">>OpenAI: Google app data FAQ</a>, <a href="https://help.openai.com/en/articles/11487775-connected-apps-in-chatgpt" rel="noopener">>OpenAI: connected apps</a></p>
+<p><strong>Can I do this for free?</strong>
+The paste-in fallback needs only a free chatbot. A hands-off routine that reads email and writes to a calendar generally needs a paid plan. ChatGPT Free does allow up to 3 scheduled tasks that run at most once a day. <a href="https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt" rel="noopener">>OpenAI: scheduled tasks</a></p>
+<p><strong>Can it check both Gmail and Outlook?</strong>
+Yes, with an assistant that connects to both. Mine checks both every morning. Grok has connectors for each, and ChatGPT lists Gmail and Outlook plugins.</p>
+<p><strong>How do both parents see the events?</strong>
+Put them on one shared family Google Calendar that both parents can see. When I approve one, it adds it to our shared family Google Calendar. That calendar also shows up on the wall calendar in our kitchen, so everyone sees the day's plan in the morning.</p>
+<h2>Related</h2>
+<ul>
+<li>Beginner version: <a href="/tips/ai-family-schedule-planner.html">Plan your family's week with AI</a></li>
+<li><a href="/tips/email-to-teacher-with-ai.html">Write an email to your child's teacher with AI</a></li>
+<li>Coming soon: <em>Is it safe to connect ChatGPT to Gmail and Google Calendar?</em> (setup #2) · <em>Daily AI check-ins for busy parents</em> (setup #4)</li>
+</ul>
+  <section class="signup-box" aria-labelledby="sub-h2">
+   <h2 id="sub-h2">Want the next setup in your inbox?</h2>
+   <p>Free weekly tips, no hype. Unsubscribe anytime.</p>
+   <div class="signup">
+   <div class="beehiiv-embed"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c7cb087d-0bfc-48ca-b273-b33df584c91f"></script></div>
+   <noscript>
+    <p class="fallback-form">To subscribe, please turn on JavaScript, or email <a href="mailto:hello@aiparentingtips.com?subject=Subscribe">hello@aiparentingtips.com</a> and we'll add you. <a href="/privacy.html">Privacy</a></p>
+   </noscript>
+   </div>
+  </section>
+  <aside class="author" aria-label="About the author">
+   <div class="avatar" aria-hidden="true">AH</div>
+   <div><strong><a href="/about.html">Adam Hunter</a></strong><p>Dad of two who builds with AI. Runs his house (and this newsletter) with AI helpers. <a href="https://x.com/aiparentingtips" rel="me noopener">@aiparentingtips</a></p></div>
+  </aside>
+ </article>
+</main>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+ var t=document.getElementById(b.dataset.copy).innerText;
+ navigator.clipboard.writeText(t).then(function(){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy'},2000)});
+})});
+</script>
+<footer class="site-footer">
+ <div class="wrap">
+  <div class="top">
+   <div>
+    <a class="brand" href="/"><img src="/assets/logo-96.webp" width="48" height="48" alt="">AI Parenting Tips</a>
+    <p style="margin-top:.6rem">One simple AI trick a week to make family life easier. Free.</p>
+   </div>
+   <nav class="socials" aria-label="Follow AI Parenting Tips">
+    <a href="https://x.com/aiparentingtips" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.8-6.3L6.4 22H3.3l7.3-8.3L1 2h6.3l4.4 5.8zm-1.1 18h1.7L6.3 3.9H4.5z"/></svg>X<span class="sr"> @aiparentingtips</span></a>
+    <a href="https://www.instagram.com/aiparenting.tips/" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.3 5.5a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>Instagram<span class="sr"> @aiparenting.tips</span></a>
+    <a href="https://www.tiktok.com/@aiparentingtips" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.3 2.5 1.8 4 4.4 4.2v3c-1.6.1-3-.4-4.4-1.3v6.4c0 8.1-8.9 10.6-12.4 4.8-2.3-3.7-.9-10.2 6.4-10.5v3.2c-.6.1-1.2.2-1.7.4-1.6.5-2.5 1.6-2.2 3.4.5 3.4 6.8 4.4 6.3-2.2V2z"/></svg>TikTok<span class="sr"> @aiparentingtips</span></a>
+    <a href="https://www.youtube.com/@aiparentingtips" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg>YouTube<span class="sr"> @aiparentingtips</span></a>
+   </nav>
+  </div>
+  <div class="legal">
+   <p>&copy; 2026 AI Parenting Tips. Made with care by a dad of two.</p>
+   <nav aria-label="Footer"><a href="/tips/">All tips</a><a href="/setups/">Setups</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/#subscribe">Subscribe</a></nav>
+  </div>
+ </div>
+</footer>
+</body>
+</html>
