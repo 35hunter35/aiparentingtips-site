@@ -212,13 +212,13 @@ Keep it warm and simple. No lectures."""),
 For each one, tell me in one plain sentence what it does and whether it's on or off right now.
 Don't change anything yet. I'll tell you what I want to change.""")],
  extra='''  <h2>What you can change</h2>
-  <p>These are the settings OpenAI lists for a linked teen account, with their defaults:</p>
+  <p>These are the main settings OpenAI lists for a linked teen account, with their defaults:</p>
   <ul class="list">
    <li><strong>Quiet hours:</strong> times your teen can't use ChatGPT at all, like after 9 p.m. on school nights. Off until you set it. You can add more than one block.</li>
-   <li><strong>Study mode and Study hours:</strong> new chats can start in study mode, which gives hints and questions instead of answers. This doesn't block anything, and it's off by default. Pair it with our <a href="/tips/chatgpt-homework-help-without-cheating.html">homework tutor prompt</a>.</li>
+   <li><strong>Study mode and Study hours:</strong> new chats can start in study mode, which gives hints and questions instead of answers. This doesn't block anything, and it's off by default. Common Sense Media found teens can easily turn it off. Pair it with our <a href="/tips/chatgpt-homework-help-without-cheating.html">homework tutor prompt</a>.</li>
    <li><strong>Reduce sensitive content:</strong> on by default. Adds filters for things like graphic content, viral challenges, and romantic or violent roleplay.</li>
    <li><strong>Voice Mode and Image generation:</strong> both on by default. Turn either off if you'd rather they not be used.</li>
-   <li><strong>Reference saved memories:</strong> whether ChatGPT remembers details across chats. Usually on by default.</li>
+   <li><strong>Reference saved memories:</strong> whether ChatGPT remembers details across chats. On by default in most places.</li>
    <li><strong>Improve the model for everyone:</strong> on by default. Turn it off if you don't want your teen's chats used to train OpenAI's models.</li>
    <li><strong>Health:</strong> on by default where it's offered. Controls whether your teen can use ChatGPT's Health feature and connect health data. It doesn't stop general health questions.</li>
   </ul>
@@ -261,6 +261,7 @@ Style rules:
 - No shading, no gray, no color fill, no tiny details.
 - Leave plenty of white space.
 - Portrait layout that fits on one US Letter page.
+- Original characters only, no cartoon or movie characters.
 - [No words on the page / Add the word "[word]" in big outline letters at the top.]"""),
   ("Prompt 2: a \"looks like my kid\" character, no photo needed","""Add a cartoon kid to this coloring page who looks like my child, based only on this description:
 [short curly hair, round glasses, a dinosaur T-shirt, rain boots, a big smile].
@@ -358,11 +359,12 @@ Give me a table: Night | Setup (one sentence) | What you need | Minutes."""),
    <li><strong>Medicine cabinet or cleaning products:</strong> even as a joke, it teaches kids those are play things.</li>
    <li><strong>Scary or "creepy" scenes:</strong> an elf that's hurt, trapped, or punished, or "evil elf" setups. Some kids find these upsetting at bedtime.</li>
    <li><strong>Surveillance and threats:</strong> notes saying the elf is watching or will tell Santa. They can turn a fun tradition into a stressful one.</li>
+   <li><strong>Choking hazards for little ones:</strong> small items, mini marshmallows, button batteries, or magnets anywhere a child under 3 can reach.</li>
    <li><strong>Pet hazards:</strong> chocolate, grapes, raisins, or anything sweetened with xylitol left where the dog can reach it.</li>
    <li><strong>AI photos of your kids with the elf:</strong> skip uploading their photos. An <a href="/tips/chatgpt-coloring-pages-for-kids.html">elf coloring page</a> made from a description is a fun swap.</li>
   </ul>
 ''',
- notice="<strong>Read it first:</strong> AI doesn't know your house, your pets, or your kids. Read every idea before you set it up. Elf on the Shelf is a trademark of its owner, and this tip isn't affiliated with them.",
+ notice="<strong>Read it first:</strong> AI doesn't know your house, your pets, or your kids. Read every idea before you set it up. The Elf on the Shelf® is a registered trademark of CCA and B, LLC. This tip isn't affiliated with or endorsed by its makers.",
  faq=[("Can ChatGPT really plan Elf on the Shelf ideas?","Yes. Give it your kids' ages, your supplies, and your time, and it'll draft a full 24-night plan in a minute or two. The rules in Prompt 1 matter, because without them AI ideas tend to be vague or need things you don't have."),
   ("What do I do if I forget to move the elf?","Paste Prompt 3. You'll get three 2-minute ideas plus a note explaining the elf was resting. It happens to everyone."),
   ("Should I make AI pictures of my kids with the elf?","We'd skip it. Those trends ask you to upload your child's photo. Make an [[elf coloring page|/tips/chatgpt-coloring-pages-for-kids.html]] from a description instead, or take a real photo yourself."),
